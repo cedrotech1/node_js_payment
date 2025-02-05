@@ -11,13 +11,11 @@ const cashin = async (req, res) => {
     }
   
     try {
-      const headers = {
-        'Webhook-Mode': process.env.PAYPACK_ENVIRONMENT, 
-      };
+
       let environment = process.env.PAYPACK_ENVIRONMENT;
   
       // Call Paypack API for cash-in operation
-      const response = await paypack.cashin({ number, amount, environment, headers });
+      const response = await paypack.cashin({ number, amount, environment});
   
       // Check for successful response
       if (response.success) {
